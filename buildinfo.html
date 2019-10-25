@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geek Cred Gaming</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="css/layouts/ui.css">
+</head>
+<body>
+<div class="header">
+    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+        <a class="pure-menu-heading" href="index.html">Geek Credential</a>
+
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item pure-menu-selected"><a href="index.html" class="pure-menu-link">Home</a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">About</a></li>
+            <li class="pure-menu-item"><a href="buildinfo.html" class="pure-menu-link">Build</a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Services</a></li>
+        </ul>
+    </div>
+</div>
+
+   <article class="buildform">
+      <h2>Computer Build Form</h2>
+      <div id="errorMessage"></div>
+      <form novalidate="novalidate">
+         <fieldset id="Personalinfo">
+            <legend>Personal Information</legend>
+            <label for="nameinput">Name</label>
+            <input type="text" id="nameinput" name="name" required="required" />
+	    <br>
+            <label for="addrinput">Address</label>
+            <input type="text" id="addrinput" name="address" required="required" />
+	    <br>
+            <label for="cityinput">City</label>
+            <input type="text" id="cityinput" name="city" required="required" />
+	    <br>
+            <label for="emailinput">Email</label>
+            <input type="email" id="emailinput" name="email" required="required" />
+	    <br>
+            <label for="phoneinput">Phone</label>
+            <input type="text" id="phoneinput" name="phone" required="required" />
+	    <br>
+         </fieldset>
+         <fieldset id="Buildinfo">
+            <legend>Computer information</legend>
+            <label for="cpuinput">Processor Type:</label>
+	    <label for="intel">Intel</label>
+            <input type="radio" name="cpu" value="Intel"/>
+	    <label for="amd">AMD</label>
+	    <input type="radio" name="cpu" value="AMD"/>
+	    <br>
+            <label for="osinput">Operating System:</label>
+	    <label for="win">Windows</label>
+            <input type="radio" name="os" value="Windows"/>
+	    <label for="linux">Linux</label>
+	    <input type="radio" name="os" value="Linux"/>
+	    <br>
+	    <label for="raminput">Ram Amount</label>
+	    <select id="ram" name="Ram Amount" required="required">
+		    <option value="8gb">8GB</option>
+		    <option value="16gb">16GB</option>
+		    <option value="32gb">32GB</option>
+		    <option value="64gb">64GB</option>
+		    <option value="128gb">128GB</option>
+		</select>
+	    <br>
+            <label for="cityinput">Disk Storage</label>
+	    <select id="disk" name="disk Amount" required="required">
+		    <option value="1tb">1TB HDD</option>
+		    <option value="3tb">3TB HDD</option>
+		    <option value="500SSD">500GB SSD</option>
+		    <option value="1tbSSD">1TB SSD</option>
+		    <option value="2tbSSD">2TB SSD</option>
+		</select>
+		<br>
+            <label for="gpuinput">Graphics Adapter</label>
+	    <select id="gpu" name="gpu" required="required">
+		    <option value="1050ti">NVIDIA 1050ti</option>
+		    <option value="1660ti">NVIDIA 1660ti</option>
+		    <option value="2060s">NVIDIA 2060 Super</option>
+		    <option value="2070s">NVIDIA 2070 Super</option>
+		    <option value="2080s">NVIDIA 2080 Super</option>
+		    <option value="2080ti">NVIDIA 2080ti</option>
+		    <option value="titan">NVIDIA Titan RTX</option>
+		</select>
+		<br>
+         </fieldset>
+            <fieldset id="specialintructions">
+	    <legend>Special Instructions</legend>
+               <textarea id="instructions" name="instructions" rows="3" cols="50" placeholder="Requests"></textarea>
+	       <br>
+               <select id="size" name="size" required="required">
+                  <option value="Pick up">Pick up</option>
+                  <option value="Delivery">Delivery</option>
+               </select>
+            <input type="button" id="previewBtn" value="Preview Order" />
+            </fieldset>
+         </fieldset>
+      </form>
+      <section id="quelist">
+         <h2>Order Queue</h2>
+	 <table id="tab">
+		 <thead>
+		 <tr>
+			 <th>Customer Name</th>
+			 <th>CPU Brand</th>
+			 <th>Operating System</th>
+			 <th>Ram amount</th>
+			 <th>Disk Space</th>
+			 <th>Graphics Adapter</th>
+		</tr>
+		</thead>
+		<tbody id="insertrow">
+		</tbody>
+	 </table>
+      </section>
+   </article>
+
+
+    <div class="footer l-box is-center">
+        ASU for educational purposes
+	
+    </div>
+
+</div>
+
+
+
+<script src="modernizr.custom.05819.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
