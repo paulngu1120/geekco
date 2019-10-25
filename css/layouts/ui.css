@@ -10,6 +10,11 @@ td, th{
 	padding: 8px;
 }
 
+aside{
+	padding: 120px;
+	float: right;
+}
+
 table{
 	border-collapse: collapse;
 	width: 100%;
@@ -124,7 +129,6 @@ a.pure-button-primary {
 }
 
 .splash-container img{
-    position: absolute;
     top: 200px;
     display: block; 
     margin-left: auto;
@@ -133,7 +137,7 @@ a.pure-button-primary {
 
 .splash {
     width: 80%;
-    height: 50%;
+    height: 60%;
     margin: auto;
     position: absolute;
     top: 1500px; left: 0; bottom: 0; right: 0;

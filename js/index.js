@@ -5,41 +5,44 @@
 
 "use strict";
 
-var customerbuild = {
-	name: "", 
-	cpu: "",
-	os: "",
-	ram: "",
-	disk: "",
-	gpu: ""
-};
+class Customerbuild {
+	constructor(gpu, disk, ram, os, cpu, name){
+		this.gpu=gpu;
+		this.disk=disk;
+		this.ram=ram;
+		this.os=os;
+		this.cpu=cpu;
+		this.name=name;
+	}
+}
+//Template for creating person object
 
 function getInfo(){
-	customerbuild.name=document.getElementById("nameinput").value;
+	var name=document.getElementById("nameinput").value;
+	var ram=document.getElementById("ram").value;
+	var disk=document.getElementById("disk").value;
+	var gpu=document.getElementById("gpu").value;
 	for(var i=0; i<=1; i++){	
 		if(document.getElementsByName("cpu")[i].checked){
-			customerbuild.cpu=document.getElementsByName("cpu")[i].value;
+			var cpu=document.getElementsByName("cpu")[i].value;
 		}
 	}
 	for(var n=0; n<=1; n++){
 		if(document.getElementsByName("os")[n].checked){
-			customerbuild.os=document.getElementsByName("os")[n].value;
+			var os=document.getElementsByName("os")[n].value;
 		}
 	}
-	customerbuild.ram=document.getElementById("ram").value;
-	customerbuild.disk=document.getElementById("disk").value;
-	customerbuild.gpu=document.getElementById("gpu").value;
-	insertRow();
-}
-
-
-function insertRow(){
-	var newRow = document.createElement("tr");
-	var newCell = document.createElement("td");
-	var table = document.getElementById("insertrow");
-	newCell.innerHTML = customerbuild.name;
-	newRow.append(newCell);
-	table.appendChild(newRow);
+	//Gather information from form and store in variables for creating person object
+	let person = new Customerbuild(gpu, disk, ram, os, cpu, name);
+	//person object created here
+	var table = document.getElementById("insertrow").insertRow(0);
+	var items = Object.values(person);
+	//insert new rows with cells and gather values from to be inserted in cells
+	for(var i = 0; i<1;i++){
+		items.map(value => {table.insertCell(i).innerHTML=(value)});
+		//append values in cells
+	}
+		
 }
 
 function createEventListener(){
@@ -49,6 +52,7 @@ function createEventListener(){
 	}else if(submit.attachEvent){
 		submit.attachEvent("onclick", getInfo);
 	}
+	//event listener for click and insert
 }
 
 if(window.addEventListener){
@@ -56,3 +60,4 @@ if(window.addEventListener){
 }else if(window.attachEvent){
 	window.attachEvent("onload", createEventListener);
 }
+	//on load for event
