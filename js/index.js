@@ -1,63 +1,52 @@
-/* Name: Paul Nguyen
- * Date: Thu 24 Oct 2019 09:35:20 PM UTC
- * Class: GIT-418 Fall
+/*
+ * Name: Paul Nguyen
+ * Date: Fri 01 Nov 2019 04:57:17 PM UTC
+ * Class: GIT 418 Fall
  */
 
 "use strict";
 
-class Customerbuild {
-	constructor(gpu, disk, ram, os, cpu, name){
-		this.gpu=gpu;
-		this.disk=disk;
-		this.ram=ram;
-		this.os=os;
-		this.cpu=cpu;
-		this.name=name;
+function showResults(){
+	//array
+	var formResults = [];
+	//getting radio buttons from page
+	var service = document.forms['feedback-form'].elements['sStar'];
+	var performance = document.forms['feedback-form'].elements['pStar'];
+	var quality = document.forms['feedback-form'].elements['qStar'];
+	var speed = document.forms['feedback-form'].elements['spStar'];
+	var satisfaction = document.forms['feedback-form'].elements['stStar'];
+	//if there is a value add to feedback results and put data in array
+	if(service.value){
+		document.getElementById("servr").innerHTML = service.value;
+		formResults.push(service.value);
+	}if(performance.value){
+		document.getElementById("perfr").innerHTML = performance.value;
+		formResults.push(performance.value);
+	}if(quality.value){
+		document.getElementById("qualr").innerHTML = quality.value;
+		formResults.push(quality.value);
+	}if(speed.value){
+		document.getElementById("speedr").innerHTML = speed.value;
+		formResults.push(speed.value);
+	}if(satisfaction.value){
+		document.getElementById("satr").innerHTML = satisfaction.value;
+		formResults.push(satisfaction.value);
 	}
 }
-//Template for creating person object
 
-function getInfo(){
-	var name=document.getElementById("nameinput").value;
-	var ram=document.getElementById("ram").value;
-	var disk=document.getElementById("disk").value;
-	var gpu=document.getElementById("gpu").value;
-	for(var i=0; i<=1; i++){	
-		if(document.getElementsByName("cpu")[i].checked){
-			var cpu=document.getElementsByName("cpu")[i].value;
-		}
+//event listener for when something it clicked it activates showResults
+function createEventListeners(){
+	var radiocheck = document.getElementById("feedback-form");
+	if(radiocheck.addEventListener){
+		radiocheck.addEventListener("click", showResults, false);
+	}else if(radiocheck.attachEvent){
+		radiocheck.attachEvent("onclick", showResults);
 	}
-	for(var n=0; n<=1; n++){
-		if(document.getElementsByName("os")[n].checked){
-			var os=document.getElementsByName("os")[n].value;
-		}
-	}
-	//Gather information from form and store in variables for creating person object
-	let person = new Customerbuild(gpu, disk, ram, os, cpu, name);
-	//person object created here
-	var table = document.getElementById("insertrow").insertRow(0);
-	var items = Object.values(person);
-	//insert new rows with cells and gather values from to be inserted in cells
-	for(var i = 0; i<1;i++){
-		items.map(value => {table.insertCell(i).innerHTML=(value)});
-		//append values in cells
-	}
-		
 }
 
-function createEventListener(){
-	var submit = document.getElementById("previewBtn");
-	if(submit.addEventListener){
-		submit.addEventListener("click", getInfo, false);
-	}else if(submit.attachEvent){
-		submit.attachEvent("onclick", getInfo);
-	}
-	//event listener for click and insert
-}
-
+//on load listener
 if(window.addEventListener){
-	window.addEventListener("load", createEventListener, false);
+	addEventListener("load", createEventListeners, false);
 }else if(window.attachEvent){
-	window.attachEvent("onload", createEventListener);
-}
-	//on load for event
+	attachEvent("onload", createEventListeners);
+	}

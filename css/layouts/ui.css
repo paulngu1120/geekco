@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+.aside-pos{
+	float: left;
+}
+
+.aside-pos fieldset{
+	border-width: thick;
+}
+
 td, th{
 	border: 1px solid;
 	text-align: left;
